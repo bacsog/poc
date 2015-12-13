@@ -1,44 +1,46 @@
 voomer
 ==============
 
-Template for a simple Vaadin application that only requires a Servlet 3.0 container to run.
-
+Proof of Concept webapp using Vaadin 7.5.
 
 Workflow
 ========
 
-To compile the entire project, run "mvn install".
-To run the application, run "mvn jetty:run" and open http://localhost:8080/ .
+To see in action:
 
-To develop the theme, simply update the relevant theme files and reload the application.
-Pre-compiling a theme eliminates automatic theme updates at runtime - see below for more information.
+ - git clone https://github.com/bacsog/poc.git
 
-Debugging client side code
-  - run "mvn vaadin:run-codeserver" on a separate console while the application is running
-  - activate Super Dev Mode in the debug window of the application
+ - cd poc
 
-To produce a deployable production mode WAR:
-- change productionMode to true in the servlet class configuration (nested in the UI class)
-- run "mvn clean vaadin:compile-theme package"
-  - See below for more information. Running "mvn clean" removes the pre-compiled theme.
-- test with "mvn jetty:run-war
+ - mvn verify //runs for more than a full minute, but needs to be only done once per project
 
-Using a precompiled theme
--------------------------
+ - mvn jetty:run
 
-When developing the application, Vaadin can compile the theme on the fly when needed,
-or the theme can be precompiled to speed up page loads.
+ - open http://localhost:8080/
 
-To precompile the theme run "mvn vaadin:compile-theme". Note, though, that once
-the theme has been precompiled, any theme changes will not be visible until the
-next theme compilation or running the "mvn clean" target.
+ - To experiment with the project, just change the code. Context will be refreshed & reloaded in around 5 sec in your browser.
+ 
+Source
+========
 
-When developing the theme, running the application in the "run" mode (rather than
-in "debug") in the IDE can speed up consecutive on-the-fly theme compilations
-significantly.
+This project is using the basic Vaadin archetype:
+https://vaadin.com/maven
 
-Using Vaadin pre-releases
--------------------------
+Features
+========
 
-If Vaadin pre-releases are not enabled by default, use the Maven parameter
-"-P vaadin-prerelease" or change the activation default value of the profile in pom.xml .
+ - Hiearchical table with:
+	- Context menu on right click
+	- Add/remove feature
+	- Collapsible columns
+	- Resizable columns
+	- Ordered columns
+	- Reorderable columns
+	
+ - Grid with:
+	- Ordering
+	- Grand Total row
+	- Text search filter
+	- Number search filter
+	- Progress bar renderer
+	- Live push (1200 elements every 0.5 sec)
