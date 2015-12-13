@@ -12,7 +12,7 @@ To see in action:
 
  - cd poc
 
- - mvn verify //runs for more than a full minute, but needs to be only done once per project
+ - mvn verify //Requires Java8. It runs for more than a full minute, but needs to be done only once per project
 
  - mvn jetty:run
 
