@@ -128,8 +128,6 @@ public class InstrumentInventoryPanel extends Panel implements Component {
 
 	@SuppressWarnings("unchecked") // property checks disabled
 	private void updateByContainerItem(Instrument updated) {
-		System.out.println("Received: " + updated.toString());
-
 		BeanItem<Instrument> item = container
 				.getItem(container.getIdByIndex(new Random().nextInt(container.size() - 1)));
 		item.getItemProperty(MARGIN).setValue(updated.getMargin());
@@ -142,7 +140,7 @@ public class InstrumentInventoryPanel extends Panel implements Component {
 	private void updateByContainerItem(List<Instrument> updates) {
 		int i = 0;
 		for (Instrument updated : updates) {
-			System.out.println("Received: " + updated.toString());
+
 
 			try {
 				BeanItem<Instrument> item = container.getItem(container.getIdByIndex(i++));
